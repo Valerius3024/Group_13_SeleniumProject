@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -43,6 +44,20 @@ public class TC1 {
 //8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
         System.out.println("driver.findElement(By.tagName(\"h2\")).getText() = " + driver.findElement(By.tagName("h2")).getText());
 //9. Fill details: Title, Name, Email, Password, Date of birth
+        WebElement titleBtn = driver.findElement(By.cssSelector("input[id='id_gender1']"));
+        titleBtn.click();
+        WebElement passWord = driver.findElement(By.id("password"));
+        passWord.sendKeys("abcd");
+
+        Select select = new Select(driver.findElement(By.id("days")));
+        select.selectByIndex(11);
+
+        Select select1 = new Select(driver.findElement(By.id("months")));
+        select1.selectByValue("5");
+
+        Select select2 = new Select(driver.findElement(By.id("years")));
+        select2.selectByVisibleText("2014");
+
 //10. Select checkbox 'Sign up for our newsletter!'
 //11. Select checkbox 'Receive special offers from our partners!'
 //12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
